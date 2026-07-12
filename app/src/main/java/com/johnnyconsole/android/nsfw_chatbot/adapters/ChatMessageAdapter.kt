@@ -1,23 +1,28 @@
 package com.johnnyconsole.android.nsfw_chatbot.adapters
 
-import android.content.Context
-import android.view.View
+import android.app.Activity
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.johnnyconsole.android.nsfw_chatbot.objects.ChatMessage
+import com.johnnyconsole.android.nsfw_chatbot.R.layout.layout_message
+import com.johnnyconsole.android.nsfw_chatbot.objects.ChatMessageViewHolder
 
-class ChatMessageAdapter(val context: Context, val items: Array<String>):
-    ArrayAdapter<String>(context, 0) {
+class ChatMessageAdapter(private val context: Activity, private val items: Array<ChatMessage>):
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun getCount(): Int {
-        return items.size
+    override fun getItemViewType(position: Int): Int = 0
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatMessageViewHolder {
+        val view = context.layoutInflater.inflate(layout_message, parent, false)
+        return ChatMessageViewHolder(context, view)
     }
 
-    override fun getItem(index: Int): String {
-        return items[index]
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val message = items[position]
+        (holder as ChatMessageViewHolder).bind(message)
     }
 
-    //TODO: Inflate proper view for bot/user messages
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        return super.getView(position, convertView, parent)
-    }
+    override fun getItemCount(): Int = items.size
+
+
 }
