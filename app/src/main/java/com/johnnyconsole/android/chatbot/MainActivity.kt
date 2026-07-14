@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-        val preferences = getSharedPreferences("NSFWChatbot", MODE_PRIVATE)
+        val preferences = getSharedPreferences("Chatbot", MODE_PRIVATE)
         var modelDownloaded = preferences.getBoolean("ModelDownloaded", false)
 
         with(binding) {
