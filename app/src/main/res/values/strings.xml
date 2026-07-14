@@ -2,4 +2,8 @@
     <string name="app_name">NSFW Chatbot</string>
     <string name="send">Send</string>
     <string name="message">Message</string>
+    <string name="download_title">Downloading Model…</string>
+    <string name="download_message">This may take a while. Please do not close the app. You will not be able to use the app until the model is fully downloaded.</string>
+    <string name="download_empty">0%</string>
+    <string name="download_progress">%1$d%% (%2$d GB of %3$d MB)</string>
 </resources>
