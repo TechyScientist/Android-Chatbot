@@ -11,47 +11,10 @@
         android:scaleX="0.8"
         android:scaleY="0.8">
 
-        <!-- 1. The White Chat Bubble and Tail Wrapper (Base Layer) -->
+        <!-- The White Chat Bubble and Tail Wrapper -->
         <path
             android:fillColor="#FFFFFF"
             android:pathData="M54,26 C38.5,26 26,36.7 26,50 C26,56.8 29.8,63 36,67.3 L33,78 L44.3,73.5 C47.3,74.5 50.6,75 54,75 C69.5,75 82,64.3 82,50 C82,36.7 69.5,26 54,26 Z" />
-
-        <!-- 2. Circular Face Border -->
-        <path
-            android:strokeColor="#B3282D"
-            android:strokeWidth="1.5"
-            android:pathData="M 54, 38 A 16,16 0 1,1 53.99,38 Z" />
-
-        <!-- 3. Left Horn (Shifted up to sit completely above the circle) -->
-        <path
-            android:fillColor="#B3282D"
-            android:pathData="M43,40 C41,35 36,34 36,34 C36,34 39,40 41,44 C43,42 43,40 43,40 Z" />
-
-        <!-- 4. Right Horn (Shifted up to sit completely above the circle) -->
-        <path
-            android:fillColor="#B3282D"
-            android:pathData="M65,40 C67,35 72,34 72,34 C72,34 69,40 67,44 C65,42 65,40 65,40 Z" />
-
-        <!-- 5. Left Smiling Eye -->
-        <path
-            android:strokeColor="#B3282D"
-            android:strokeWidth="1.5"
-            android:strokeLineCap="round"
-            android:pathData="M42,53 Q45,50 48,53" />
-
-        <!-- 6. Right Smiling Eye -->
-        <path
-            android:strokeColor="#B3282D"
-            android:strokeWidth="1.5"
-            android:strokeLineCap="round"
-            android:pathData="M60,53 Q63,50 66,53" />
-
-        <!-- 7. Smiling Mouth -->
-        <path
-            android:strokeColor="#B3282D"
-            android:strokeWidth="2"
-            android:strokeLineCap="round"
-            android:pathData="M47,60 Q54,66 61,60" />
 
     </group>
 
