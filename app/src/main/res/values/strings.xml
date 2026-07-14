@@ -1,10 +1,58 @@
 <resources>
     <string name="app_name">Chatbot</string>
-    <string name="settings_header">Set Up Your Chatbot</string>
-    <string name="send">Send</string>
-    <string name="message">Message</string>
+
+    <!-- Model Download Strings -->
     <string name="download_title">Downloading Model…</string>
     <string name="download_message">This may take a while. Please do not close the app. You will not be able to use the app until the model is fully downloaded.</string>
     <string name="download_empty">0%</string>
     <string name="download_progress">%1$d%% (%2$d GB of %3$d MB)</string>
+
+    <!-- Settings Screen Strings -->
+    <string name="settings_header">Set Up Your Chatbot</string>
+    <string name="name_label">Chatbot\'s Name:</string>
+    <string name="role_label">Chatbot\'s Role:</string>
+    <string name="personality_header">Chatbot\'s personality traits:</string>
+    <string name="role_friend">Friend</string>
+    <string name="role_girlfriend">Girlfriend</string>
+    <string name="role_boyfriend">Boyfriend</string>
+    <string name="role_companion">Companion</string>
+    <string name="role_partner">Partner</string>
+    <string name="role_coworker">Coworker</string>
+    <string name="role_personalRival">Personal Rival</string>
+    <string name="role_academicRival">Academic Rival</string>
+    <string name="role_mentor">Mentor/Guide</string>
+    <string name="assertiveness_label">Assertiveness:</string>
+    <string name="assertiveness_submissive">Submissive</string>
+    <string name="assertiveness_neutral">Neutral</string>
+    <string name="assertiveness_dominant">Dominant</string>
+    <string name="warmth_label">Warmth Level:</string>
+    <string name="warmth_cold">Cold</string>
+    <string name="warmth_friendly">Friendly</string>
+    <string name="warmth_affectionate">Affectionate</string>
+    <string name="formality_label">Formality:</string>
+    <string name="formality_casual">Casual</string>
+    <string name="formality_standard">Standard</string>
+    <string name="formality_elegant">Elegant</string>
+    <string name="impulsiveness_label">Impulsiveness:</string>
+    <string name="impulsiveness_calculated">Calculated</string>
+    <string name="impulsiveness_balanced">Balanced</string>
+    <string name="impulsiveness_spontaneous">Spontaneous</string>
+    <string name="playfulness_label">Playfulness:</string>
+    <string name="playfulness_serious">Serious</string>
+    <string name="playfulness_lighthearted">Light-hearted</string>
+    <string name="playfulness_teasing">Teasing</string>
+    <string name="sensory_label">Sensory Focus:</string>
+    <string name="sensory_analytical">Analytical</string>
+    <string name="sensory_balanced">Balanced</string>
+    <string name="sensory_physical">Physical</string>
+    <string name="maturity_label">Maturity Rating:</string>
+    <string name="maturity_safe">Safe (PG-13)</string>
+    <string name="maturity_suggestive">Suggestive (R)</string>
+    <string name="maturity_explicit">Explicit (X)</string>
+    <string name="save">Save and Start Chatting</string>
+
+    <!-- Chat Screen Strings -->
+    <string name="send">Send</string>
+    <string name="message">Message</string>
+
 </resources>
