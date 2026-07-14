@@ -9,11 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.johnnyconsole.android.nsfw_chatbot.adapters.ChatMessageAdapter
 import com.johnnyconsole.android.nsfw_chatbot.databinding.ActivityMainBinding
-import com.johnnyconsole.android.nsfw_chatbot.objects.ChatMessage
-import com.johnnyconsole.android.nsfw_chatbot.objects.MessageSender
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -98,23 +94,8 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-            //TODO: Remove this and have user set up preferences for their companion
             if (modelDownloaded) {
-                val array = arrayOf(
-                    ChatMessage(MessageSender.SENDER_BOT, "From the Bot!"),
-                    ChatMessage(MessageSender.SENDER_USER, "Fron the User!"),
-                    ChatMessage(
-                        MessageSender.SENDER_BOT,
-                        "This is a really long message from the bot and it should wrap to the next like, allowing us to test the width of the message box. Hopefully it will work as I intend it to :)"
-                    ),
-                    ChatMessage(
-                        MessageSender.SENDER_USER,
-                        "This is a really long message from the user and it should wrap to the next like, allowing us to test the width of the message box. Hopefully it will work as I intend it to :)"
-                    ),
-                )
-
-                rvChatMessages.layoutManager = LinearLayoutManager(this@MainActivity)
-                rvChatMessages.adapter = ChatMessageAdapter(this@MainActivity, array)
+                //TODO: Add listener to set-up button here
             }
         }
     }

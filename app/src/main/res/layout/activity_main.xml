@@ -20,47 +20,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rvChatMessages"
-        android:layout_margin="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toTopOf="@id/llChatBar"
-        app:layout_constraintVertical_bias="0">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/llChatBar"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:layout_weight="1"
-            android:id="@+id/etMessage"
-            android:hint="@string/message"
-            android:autofillHints="no"
-            android:inputType="textMultiLine" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:id="@+id/btSend"
-            android:layout_gravity="bottom"
-            android:text="@string/send"
-            android:layout_marginStart="10dp"
-            app:icon="@android:drawable/ic_menu_send"
-            app:iconGravity="start"/>
-
-    </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
