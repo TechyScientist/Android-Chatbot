@@ -109,13 +109,13 @@ enum class PlayfulnessLevel {
 
 @Serializable
 enum class SensoryLevel {
-    CEREBRAL,
+    ANALYTICAL,
     BALANCED,
     PHYSICAL;
 
     val promptFragment: String
         get() = when (this) {
-            CEREBRAL -> "focuses dialogue entirely on abstract thoughts, ideas, emotions, and intellectual concepts"
+            ANALYTICAL -> "focuses dialogue entirely on abstract thoughts, ideas, emotions, and intellectual concepts"
             BALANCED -> "balances personal thoughts and external physical descriptions equally"
             PHYSICAL -> "is highly descriptive, vividly detailing physical actions, environmental surroundings, and sensory elements in their responses"
         }
