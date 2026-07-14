@@ -1,4 +1,4 @@
-package com.johnnyconsole.android.nsfw_chatbot.objects
+package com.johnnyconsole.android.chatbot.objects
 
 import android.app.Activity
 import android.graphics.drawable.GradientDrawable
@@ -7,10 +7,10 @@ import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.johnnyconsole.android.nsfw_chatbot.R.id.tvMessageText
-import com.johnnyconsole.android.nsfw_chatbot.objects.MessageSender.*
-import com.johnnyconsole.android.nsfw_chatbot.R.drawable.dr_background_message_bot
-import com.johnnyconsole.android.nsfw_chatbot.R.drawable.dr_background_message_user
+import com.johnnyconsole.android.chatbot.R.id.tvMessageText
+import com.johnnyconsole.android.chatbot.objects.MessageSender.*
+import com.johnnyconsole.android.chatbot.R.drawable.dr_background_message_bot
+import com.johnnyconsole.android.chatbot.R.drawable.dr_background_message_user
 
 class ChatMessageViewHolder(private val context: Activity, private val messageView: View):
     RecyclerView.ViewHolder(messageView) {

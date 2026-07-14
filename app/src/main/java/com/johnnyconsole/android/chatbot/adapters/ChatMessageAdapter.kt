@@ -1,11 +1,11 @@
-package com.johnnyconsole.android.nsfw_chatbot.adapters
+package com.johnnyconsole.android.chatbot.adapters
 
 import android.app.Activity
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.johnnyconsole.android.nsfw_chatbot.objects.ChatMessage
-import com.johnnyconsole.android.nsfw_chatbot.R.layout.layout_message
-import com.johnnyconsole.android.nsfw_chatbot.objects.ChatMessageViewHolder
+import com.johnnyconsole.android.chatbot.objects.ChatMessage
+import com.johnnyconsole.android.chatbot.R.layout.layout_message
+import com.johnnyconsole.android.chatbot.objects.ChatMessageViewHolder
 
 class ChatMessageAdapter(private val context: Activity, private val items: Array<ChatMessage>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

@@ -1,4 +1,4 @@
-package com.johnnyconsole.android.nsfw_chatbot
+package com.johnnyconsole.android.chatbot
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.johnnyconsole.android.nsfw_chatbot.adapters.ChatMessageAdapter
-import com.johnnyconsole.android.nsfw_chatbot.databinding.ActivityChatBinding
-import com.johnnyconsole.android.nsfw_chatbot.objects.ChatMessage
-import com.johnnyconsole.android.nsfw_chatbot.objects.MessageSender
+import com.johnnyconsole.android.chatbot.adapters.ChatMessageAdapter
+import com.johnnyconsole.android.chatbot.databinding.ActivityChatBinding
+import com.johnnyconsole.android.chatbot.objects.ChatMessage
+import com.johnnyconsole.android.chatbot.objects.MessageSender
 
 class ChatActivity : AppCompatActivity() {
 

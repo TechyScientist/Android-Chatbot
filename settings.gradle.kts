@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NSFW Chatbot"
+rootProject.name = "Chatbot"
 include(":app")

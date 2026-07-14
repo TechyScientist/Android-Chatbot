@@ -1,4 +1,4 @@
-package com.johnnyconsole.android.nsfw_chatbot.objects
+package com.johnnyconsole.android.chatbot.objects
 
 import kotlinx.serialization.Serializable
 

@@ -1,4 +1,4 @@
-package com.johnnyconsole.android.nsfw_chatbot
+package com.johnnyconsole.android.chatbot
 
 import android.os.Bundle
 import android.widget.ProgressBar
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.johnnyconsole.android.nsfw_chatbot.databinding.ActivityMainBinding
+import com.johnnyconsole.android.chatbot.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

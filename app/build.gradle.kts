@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.johnnyconsole.android.nsfw_chatbot"
+    namespace = "com.johnnyconsole.android.chatbot"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.johnnyconsole.android.nsfw_chatbot"
+        applicationId = "com.johnnyconsole.android.chatbot"
         minSdk = 30
         compileSdk = 37
         targetSdk = 37
