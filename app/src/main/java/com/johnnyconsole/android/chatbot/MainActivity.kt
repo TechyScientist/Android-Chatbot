@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         val preferences = getSharedPreferences("Chatbot", MODE_PRIVATE)
         var modelDownloaded = preferences.getBoolean("ModelDownloaded", false)
+        val personalitySet = preferences.getBoolean("PersonalitySet", false)
 
         with(binding) {
             enableEdgeToEdge()
@@ -94,8 +95,11 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-            if (modelDownloaded) {
+            if (modelDownloaded && !personalitySet) {
                 //TODO: Add listener to set-up button here
+            }
+            else {
+                //TODO: Load the chat session and forward open ChatActivity
             }
         }
     }
