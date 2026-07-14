@@ -20,4 +20,461 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/scMenu"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Companion Name Input -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name_label"
+                    android:textColor="@color/black"
+                    android:labelFor="@id/etName"
+                    android:layout_marginEnd="5dp"
+                    android:layout_gravity="center_vertical"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:id="@+id/etName"
+                    android:inputType="text|textCapWords"
+                    android:autofillHints=""/>
+
+            </LinearLayout>
+
+            <!-- Role Selector -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/role_label"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="3">
+
+                        <RadioButton
+                            android:id="@+id/rbRoleFriend"
+                            android:text="@string/role_friend"
+                            android:layout_marginEnd="5dp"
+                            android:checked="true"/>
+
+                        <RadioButton
+                            android:id="@+id/rbRoleGirlfriend"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/role_girlfriend"/>
+
+                        <RadioButton
+                            android:id="@+id/rbRoleBoyfriend"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/role_boyfriend"/>
+
+                        <RadioButton
+                            android:id="@+id/rbRoleCompanion"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/role_companion"/>
+
+                        <RadioButton
+                            android:id="@+id/rbRolePartner"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/role_partner"/>
+
+                        <RadioButton
+                            android:id="@+id/rbRoleCoworker"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/role_coworker"/>
+
+                        <RadioButton
+                            android:id="@+id/rbRolePersonalRival"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/role_personalRival"/>
+
+                        <RadioButton
+                            android:id="@+id/rbRoleAcademicRival"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/role_academicRival"/>
+
+                        <RadioButton
+                            android:id="@+id/rbRoleMentor"
+                            android:layout_marginEnd="5dp"
+                            android:text="@string/role_mentor"/>
+
+                    </GridLayout>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personality_header"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Assertiveness Segment -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/assertiveness_label"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgAssertiveness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbAssertSubmissive"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/assertiveness_submissive"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbAssertNeutral"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/assertiveness_neutral"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbAssertDominant"
+                        android:text="@string/assertiveness_dominant"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Warmth Segment -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/warmth_label"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgWarmth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbWarmthCold"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/warmth_cold"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbWarmthFriendly"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/warmth_friendly"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbWarmthAffectionate"
+                        android:text="@string/warmth_affectionate"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Formality Segment -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/formality_label"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgFormality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbFormalityCasual"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/formality_casual"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbFormalityStandard"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/formality_standard"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbFormalityElegant"
+                        android:text="@string/formality_elegant"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Impulsiveness Segment -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/impulsiveness_label"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgImpulsiveness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbImpulsivenessCalculated"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/impulsiveness_calculated"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbImpulsivenessBalanced"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/impulsiveness_balanced"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbImpulsivenessSpontaneous"
+                        android:text="@string/impulsiveness_spontaneous"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Playfulness Segment -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/playfulness_label"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgPlayfulness"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbPlayfulnessSerious"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/playfulness_serious"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbPlayfulnessLighthearted"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/playfulness_lighthearted"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbPlayfulnessTeasing"
+                        android:text="@string/playfulness_teasing"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Sensory Focus Segment -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sensory_label"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgSensory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbSensoryAnalytical"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/sensory_analytical"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbSensoryBalanced"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/sensory_balanced"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbSensoryPhysical"
+                        android:text="@string/sensory_physical"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Maturity Segment -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/maturity_label"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgMaturity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbMaturitySafe"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/maturity_safe"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbMaturitySuggestive"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/maturity_suggestive"/>
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rbMaturityExplicit"
+                        android:text="@string/maturity_explicit"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Save Button -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="24dp"
+                android:id="@+id/btSave"
+                android:text="@string/save"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
