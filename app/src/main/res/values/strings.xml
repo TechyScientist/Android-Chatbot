@@ -25,7 +25,7 @@
     <string name="assertiveness_submissive">Submissive</string>
     <string name="assertiveness_neutral">Neutral</string>
     <string name="assertiveness_dominant">Dominant</string>
-    <string name="warmth_label">Warmth Level:</string>
+    <string name="warmth_label">Warmth:</string>
     <string name="warmth_cold">Cold</string>
     <string name="warmth_friendly">Friendly</string>
     <string name="warmth_affectionate">Affectionate</string>
