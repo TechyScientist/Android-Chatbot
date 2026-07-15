@@ -7,7 +7,7 @@ import com.johnnyconsole.android.chatbot.objects.ChatMessage
 import com.johnnyconsole.android.chatbot.R.layout.layout_message
 import com.johnnyconsole.android.chatbot.objects.ChatMessageViewHolder
 
-class ChatMessageAdapter(private val context: Activity, private val items: Array<ChatMessage>):
+class ChatMessageAdapter(private val context: Activity, private val items: List<ChatMessage>):
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int = 0
