@@ -16,13 +16,16 @@ data class Personality(val userName: String,
 ) {
 
     fun toSystemPrompt(): String {
-        return "Your name is $botName, and you are the user's ${relationship.promptFragment}. The user's name is ${userName}. Your behavioral directives are: " +
-                "In terms of dynamic, you are ${assertiveness.promptFragment}. " +
-                "Your disposition toward the user is ${warmth.promptFragment}. " +
-                "In your speech, you ${formality.promptFragment}. " +
-                "In your actions, you are ${impulsiveness.promptFragment}. " +
-                "In tone, you are ${playfulness.promptFragment}. " +
-                "In your focus, you are ${sensoryFocus.promptFragment}. " +
+        return "Your name is $botName.\n" +
+                "The user's name is $userName.\n" +
+                "Your relationship is described as: ${relationship.promptFragment}.\n" +
+                "Your behavioral directives are:\n\t" +
+                "In terms of dynamic, you are ${assertiveness.promptFragment}.\n\t" +
+                "Your disposition toward the user is ${warmth.promptFragment}.\n\t" +
+                "In your speech, you ${formality.promptFragment}.\n\t" +
+                "In your actions, you are ${impulsiveness.promptFragment}.\n\t" +
+                "In tone, you are ${playfulness.promptFragment}.\n\t" +
+                "In your focus, you are ${sensoryFocus.promptFragment}.\n\t" +
                 "${maturityRating.promptFragment}."
     }
 
