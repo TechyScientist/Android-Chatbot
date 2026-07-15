@@ -3,7 +3,8 @@ package com.johnnyconsole.android.chatbot.objects
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Personality(val name: String,
+data class Personality(val userName: String,
+                       val botName: String,
                        val relationship: RelationshipType = RelationshipType.FRIEND,
                        val assertiveness: AssertivenessLevel = AssertivenessLevel.NEUTRAL,
                        val warmth: WarmthLevel = WarmthLevel.FRIENDLY,
@@ -15,7 +16,7 @@ data class Personality(val name: String,
 ) {
 
     fun toSystemPrompt(): String {
-        return "Your name is $name, and you are the user's ${relationship.promptFragment}. Your behavioral directives are: " +
+        return "Your name is $botName, and you are the user's ${relationship.promptFragment}. The user's name is ${userName}. Your behavioral directives are: " +
                 "In terms of dynamic, you are ${assertiveness.promptFragment}. " +
                 "Your disposition toward the user is ${warmth.promptFragment}. " +
                 "In your speech, you ${formality.promptFragment}. " +

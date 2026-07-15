@@ -85,8 +85,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             btSave.setOnClickListener {
-                if (modelDownloaded && etName.text.isNotBlank()) {
-                    val name = etName.text.toString()
+                if (modelDownloaded && etBotName.text.isNotBlank() && etUserName.text.isNotBlank()) {
+                    val botName = etBotName.text.toString()
+                    val userName = etUserName.text.toString()
                     val relationship = when {
                         rbRoleFriend.isChecked -> RelationshipType.FRIEND
                         rbRoleGirlfriend.isChecked -> RelationshipType.GIRLFRIEND
@@ -136,7 +137,7 @@ class MainActivity : AppCompatActivity() {
 
                     val session = ChatSession(
                         Personality(
-                            name, relationship, assertiveness, warmth,
+                            userName, botName, relationship, assertiveness, warmth,
                             formality, impulsiveness, playfulness,
                             sensory, maturity
                         ),
