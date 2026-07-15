@@ -43,7 +43,8 @@ class ChatActivity : AppCompatActivity() {
             preferences = getSharedPreferences("Chatbot", MODE_PRIVATE)
             session = Json.decodeFromString<ChatSession>(preferences.getString("session", "")!!)
 
-            Log.d("PERSONALITY", format.encodeToString(session.personality))
+            Log.d("Personality", format.encodeToString(session.personality))
+            Log.d("System Prompt", session.personality.toSystemPrompt())
 
             rvChatMessages.layoutManager = LinearLayoutManager(this@ChatActivity)
             rvChatMessages.adapter = ChatMessageAdapter(this@ChatActivity, session.context)
