@@ -2,6 +2,7 @@ package com.johnnyconsole.android.chatbot
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
@@ -38,6 +39,16 @@ class ChatActivity : AppCompatActivity() {
 
             preferences = getSharedPreferences("Chatbot", MODE_PRIVATE)
             session = Json.decodeFromString<ChatSession>(preferences.getString("session", "")!!)
+
+            Log.d("PERSONALITY", "Name: ${session.personality.name}\n" +
+                    "Relationship: ${session.personality.relationship}\n" +
+                    "Assertiveness: ${session.personality.assertiveness}\n" +
+                    "Warmth: ${session.personality.warmth}\n" +
+                    "Formality: ${session.personality.formality}\n" +
+                    "Impulsiveness: ${session.personality.impulsiveness}\n" +
+                    "Playfulness: ${session.personality.playfulness}\n" +
+                    "Sensory Focus: ${session.personality.sensoryFocus}\n" +
+                    "Maturity: ${session.personality.maturityRating}")
 
             rvChatMessages.layoutManager = LinearLayoutManager(this@ChatActivity)
             rvChatMessages.adapter = ChatMessageAdapter(this@ChatActivity, session.context)
