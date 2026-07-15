@@ -44,9 +44,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/name_label"
+                    android:text="@string/user_name_label"
                     android:textColor="@color/black"
-                    android:labelFor="@id/etName"
+                    android:labelFor="@id/etUserName"
                     android:layout_marginEnd="5dp"
                     android:layout_gravity="center_vertical"/>
 
@@ -54,7 +54,33 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:id="@+id/etName"
+                    android:id="@+id/etUserName"
+                    android:inputType="text|textCapWords"
+                    android:autofillHints=""/>
+
+            </LinearLayout>
+
+            <!-- Companion Name Input -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bot_name_label"
+                    android:textColor="@color/black"
+                    android:labelFor="@id/etBotName"
+                    android:layout_marginEnd="5dp"
+                    android:layout_gravity="center_vertical"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:id="@+id/etBotName"
                     android:inputType="text|textCapWords"
                     android:autofillHints=""/>
 

@@ -9,7 +9,8 @@
 
     <!-- Settings Screen Strings -->
     <string name="settings_header">Set Up Your Chatbot</string>
-    <string name="name_label">Chatbot\'s Name:</string>
+    <string name="user_name_label">Your Name:</string>
+    <string name="bot_name_label">Chatbot\'s Name:</string>
     <string name="role_label">Chatbot\'s Role:</string>
     <string name="personality_header">Chatbot\'s personality traits:</string>
     <string name="role_friend">Friend</string>
