@@ -1,19 +1,27 @@
 package com.johnnyconsole.android.chatbot
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.johnnyconsole.android.chatbot.adapters.ChatMessageAdapter
 import com.johnnyconsole.android.chatbot.databinding.ActivityChatBinding
 import com.johnnyconsole.android.chatbot.objects.ChatMessage
+import com.johnnyconsole.android.chatbot.objects.ChatSession
 import com.johnnyconsole.android.chatbot.objects.MessageSender
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class ChatActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatBinding
+    private lateinit var session: ChatSession
+    private lateinit var preferences: SharedPreferences
+
     private val modelFile = "gemma-4-E2B-it-Uncensored-MAX.litertlm"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,22 +36,17 @@ class ChatActivity : AppCompatActivity() {
                 insets
             }
 
-            val array = arrayOf(
-                ChatMessage(MessageSender.SENDER_BOT, "From the Bot!"),
-                ChatMessage(MessageSender.SENDER_USER, "Fron the User!"),
-                ChatMessage(
-                    MessageSender.SENDER_BOT,
-                    "This is a really long message from the bot and it should wrap to the next like, allowing us to test the width of the message box. Hopefully it will work as I intend it to :)"
-                ),
-                ChatMessage(
-                    MessageSender.SENDER_USER,
-                    "This is a really long message from the user and it should wrap to the next like, allowing us to test the width of the message box. Hopefully it will work as I intend it to :)"
-                ),
-            )
+            preferences = getSharedPreferences("Chatbot", MODE_PRIVATE)
+            session = Json.decodeFromString<ChatSession>(preferences.getString("session", "")!!)
 
             rvChatMessages.layoutManager = LinearLayoutManager(this@ChatActivity)
-            rvChatMessages.adapter = ChatMessageAdapter(this@ChatActivity, array)
+            rvChatMessages.adapter = ChatMessageAdapter(this@ChatActivity, session.context)
 
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        preferences.edit { putString("session", Json.encodeToString(session)) }
     }
 }
