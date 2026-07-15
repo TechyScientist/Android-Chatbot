@@ -24,7 +24,10 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var preferences: SharedPreferences
 
     private val modelFile = "gemma-4-E2B-it-Uncensored-MAX.litertlm"
-
+    private val format = Json {
+        encodeDefaults = true
+        prettyPrint = true
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
@@ -40,15 +43,7 @@ class ChatActivity : AppCompatActivity() {
             preferences = getSharedPreferences("Chatbot", MODE_PRIVATE)
             session = Json.decodeFromString<ChatSession>(preferences.getString("session", "")!!)
 
-            Log.d("PERSONALITY", "Name: ${session.personality.name}\n" +
-                    "Relationship: ${session.personality.relationship}\n" +
-                    "Assertiveness: ${session.personality.assertiveness}\n" +
-                    "Warmth: ${session.personality.warmth}\n" +
-                    "Formality: ${session.personality.formality}\n" +
-                    "Impulsiveness: ${session.personality.impulsiveness}\n" +
-                    "Playfulness: ${session.personality.playfulness}\n" +
-                    "Sensory Focus: ${session.personality.sensoryFocus}\n" +
-                    "Maturity: ${session.personality.maturityRating}")
+            Log.d("PERSONALITY", format.encodeToString(session.personality))
 
             rvChatMessages.layoutManager = LinearLayoutManager(this@ChatActivity)
             rvChatMessages.adapter = ChatMessageAdapter(this@ChatActivity, session.context)

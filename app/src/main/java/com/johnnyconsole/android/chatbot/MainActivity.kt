@@ -44,6 +44,10 @@ class MainActivity : AppCompatActivity() {
     private val modelUrl =
         "https://huggingface.co/PeppX/gemma-4-e2b-uncensored-litertlm/resolve/main/gemma-4-E2B-it-Uncensored-MAX.litertlm"
     private val modelFile = "gemma-4-E2B-it-Uncensored-MAX.litertlm"
+    private val format = Json {
+        encodeDefaults = true
+        prettyPrint = true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -141,7 +145,7 @@ class MainActivity : AppCompatActivity() {
 
                     preferences.edit {
                         putBoolean("PersonalitySet", true)
-                        putString("session", Json.encodeToString(session))
+                        putString("session", format.encodeToString(session))
                     }
 
                     navigateToChat()
