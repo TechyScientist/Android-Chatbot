@@ -58,86 +58,100 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        enableEdgeToEdge()
-        setContentView(binding.root)
-
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        binding.btSave.setOnClickListener {
-            if (modelDownloaded && binding.etName.text.isNotBlank()) {
-                val name = binding.etName.text.toString()
-                val relationship = when {
-                    binding.rbRoleFriend.isChecked -> RelationshipType.FRIEND
-                    binding.rbRoleGirlfriend.isChecked -> RelationshipType.GIRLFRIEND
-                    binding.rbRoleBoyfriend.isChecked -> RelationshipType.BOYFRIEND
-                    binding.rbRoleCompanion.isChecked -> RelationshipType.COMPANION
-                    binding.rbRolePartner.isChecked -> RelationshipType.PARTNER
-                    binding.rbRoleCoworker.isChecked -> RelationshipType.COWORKER
-                    binding.rbRolePersonalRival.isChecked -> RelationshipType.RIVAL_PERSONAL
-                    binding.rbRoleAcademicRival.isChecked -> RelationshipType.RIVAL_ACADEMIC
-                    else -> RelationshipType.MENTOR
-                }
-                val assertiveness = when (binding.rgAssertiveness.checkedRadioButtonId) {
-                    binding.rbAssertSubmissive.id -> AssertivenessLevel.SUBMISSIVE
-                    binding.rbAssertNeutral.id -> AssertivenessLevel.NEUTRAL
-                    else -> AssertivenessLevel.DOMINANT
-                }
-                val warmth = when (binding.rgWarmth.checkedRadioButtonId) {
-                    binding.rbWarmthCold.id -> WarmthLevel.COLD
-                    binding.rbWarmthFriendly.id -> WarmthLevel.FRIENDLY
-                    else -> WarmthLevel.AFFECTIONATE
-                }
-                val formality = when (binding.rgFormality.checkedRadioButtonId) {
-                    binding.rbFormalityCasual.id -> FormalityLevel.CASUAL
-                    binding.rbFormalityStandard.id -> FormalityLevel.STANDARD
-                    else -> FormalityLevel.ELEGANT
-                }
-                val impulsiveness = when (binding.rgImpulsiveness.checkedRadioButtonId) {
-                    binding.rbImpulsivenessCalculated.id -> ImpulsivenessLevel.CALCULATED
-                    binding.rbImpulsivenessBalanced.id -> ImpulsivenessLevel.BALANCED
-                    else -> ImpulsivenessLevel.SPONTANEOUS
-                }
-                val playfulness = when (binding.rgPlayfulness.checkedRadioButtonId) {
-                    binding.rbPlayfulnessSerious.id -> PlayfulnessLevel.SERIOUS
-                    binding.rbPlayfulnessLighthearted.id -> PlayfulnessLevel.LIGHTHEARTED
-                    else -> PlayfulnessLevel.TEASING
-                }
-                val sensory = when (binding.rgSensory.checkedRadioButtonId) {
-                    binding.rbSensoryAnalytical.id -> SensoryLevel.ANALYTICAL
-                    binding.rbSensoryBalanced.id -> SensoryLevel.BALANCED
-                    else -> SensoryLevel.PHYSICAL
-                }
-                val maturity = when (binding.rgMaturity.checkedRadioButtonId) {
-                    binding.rbMaturitySafe.id -> MaturityRating.SAFE
-                    binding.rbMaturitySuggestive.id -> MaturityRating.SUGGESTIVE
-                    else -> MaturityRating.EXPLICIT
-                }
-
-                val session = ChatSession(
-                    Personality(
-                        name, relationship, assertiveness, warmth,
-                        formality, impulsiveness, playfulness,
-                        sensory, maturity
-                    ),
-                    emptyList()
-                )
-
-                preferences.edit {
-                    putBoolean("PersonalitySet", true)
-                    putString("session", Json.encodeToString(session))
-                }
-
-                navigateToChat()
+        with(binding) {
+            enableEdgeToEdge()
+            setContentView(root)
+            ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
+                insets
             }
+
+            val roleBoxes = arrayOf(rbRoleFriend, rbRoleGirlfriend, rbRoleBoyfriend,
+                rbRoleCompanion, rbRolePartner, rbRoleCoworker, rbRolePersonalRival,
+                rbRoleAcademicRival, rbRoleMentor)
+
+            for(button in roleBoxes) {
+                button.setOnCheckedChangeListener { thisButton, checked ->
+                    for(b in roleBoxes) {
+                        b.isChecked = false
+                    }
+                    thisButton.isChecked = checked
+                }
+            }
+
+            btSave.setOnClickListener {
+                if (modelDownloaded && etName.text.isNotBlank()) {
+                    val name = etName.text.toString()
+                    val relationship = when {
+                        rbRoleFriend.isChecked -> RelationshipType.FRIEND
+                        rbRoleGirlfriend.isChecked -> RelationshipType.GIRLFRIEND
+                        rbRoleBoyfriend.isChecked -> RelationshipType.BOYFRIEND
+                        rbRoleCompanion.isChecked -> RelationshipType.COMPANION
+                        rbRolePartner.isChecked -> RelationshipType.PARTNER
+                        rbRoleCoworker.isChecked -> RelationshipType.COWORKER
+                        rbRolePersonalRival.isChecked -> RelationshipType.RIVAL_PERSONAL
+                        rbRoleAcademicRival.isChecked -> RelationshipType.RIVAL_ACADEMIC
+                        else -> RelationshipType.MENTOR
+                    }
+                    val assertiveness = when (rgAssertiveness.checkedRadioButtonId) {
+                        rbAssertSubmissive.id -> AssertivenessLevel.SUBMISSIVE
+                        rbAssertNeutral.id -> AssertivenessLevel.NEUTRAL
+                        else -> AssertivenessLevel.DOMINANT
+                    }
+                    val warmth = when (rgWarmth.checkedRadioButtonId) {
+                        rbWarmthCold.id -> WarmthLevel.COLD
+                        rbWarmthFriendly.id -> WarmthLevel.FRIENDLY
+                        else -> WarmthLevel.AFFECTIONATE
+                    }
+                    val formality = when (rgFormality.checkedRadioButtonId) {
+                        rbFormalityCasual.id -> FormalityLevel.CASUAL
+                        rbFormalityStandard.id -> FormalityLevel.STANDARD
+                        else -> FormalityLevel.ELEGANT
+                    }
+                    val impulsiveness = when (rgImpulsiveness.checkedRadioButtonId) {
+                        rbImpulsivenessCalculated.id -> ImpulsivenessLevel.CALCULATED
+                        rbImpulsivenessBalanced.id -> ImpulsivenessLevel.BALANCED
+                        else -> ImpulsivenessLevel.SPONTANEOUS
+                    }
+                    val playfulness = when (rgPlayfulness.checkedRadioButtonId) {
+                        rbPlayfulnessSerious.id -> PlayfulnessLevel.SERIOUS
+                        rbPlayfulnessLighthearted.id -> PlayfulnessLevel.LIGHTHEARTED
+                        else -> PlayfulnessLevel.TEASING
+                    }
+                    val sensory = when (rgSensory.checkedRadioButtonId) {
+                        rbSensoryAnalytical.id -> SensoryLevel.ANALYTICAL
+                        rbSensoryBalanced.id -> SensoryLevel.BALANCED
+                        else -> SensoryLevel.PHYSICAL
+                    }
+                    val maturity = when (rgMaturity.checkedRadioButtonId) {
+                        rbMaturitySafe.id -> MaturityRating.SAFE
+                        rbMaturitySuggestive.id -> MaturityRating.SUGGESTIVE
+                        else -> MaturityRating.EXPLICIT
+                    }
+
+                    val session = ChatSession(
+                        Personality(
+                            name, relationship, assertiveness, warmth,
+                            formality, impulsiveness, playfulness,
+                            sensory, maturity
+                        ),
+                        emptyList()
+                    )
+
+                    preferences.edit {
+                        putBoolean("PersonalitySet", true)
+                        putString("session", Json.encodeToString(session))
+                    }
+
+                    navigateToChat()
+                }
+            }
+
+            val model = File(getExternalFilesDir(null), modelFile)
+
+            if (!modelDownloaded) handleModelDownload(model)
         }
-
-        val model = File(getExternalFilesDir(null), modelFile)
-
-        if (!modelDownloaded) handleModelDownload(model)
     }
 
     private fun handleModelDownload(model: File) {
